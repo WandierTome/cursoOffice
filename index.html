@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curso de Informática Básica com ênfase em Microsoft Office 2024: Word, Excel e PowerPoint." />
+  <title>Curso de Informática Básica — MS Office 2024</title>
+  <style>
+    /* ===== Reset e base ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f3f4f6;
+    }
+    a { color: #0078d4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Cabeçalho ===== */
+    header {
+      background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+      color: #fff;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.95; }
+
+    /* ===== Navegação ===== */
+    nav {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+    }
+    nav a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: #0078d4;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #0078d4;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ===== Container principal ===== */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    section h2 {
+      color: #0078d4;
+      border-bottom: 3px solid #0078d4;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.6rem;
+    }
+    section h3 {
+      color: #005a9e;
+      margin: 1.25rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    section p, section li { margin-bottom: 0.5rem; }
+    section ul, section ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+
+    /* ===== Cards dos módulos ===== */
+    .modulos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: #f9fafb;
+      border-left: 5px solid #0078d4;
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .card h3 { margin-top: 0; }
+
+    /* ===== Acordeão ===== */
+    details {
+      background: #f9fafb;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+    }
+    details[open] { background: #eef6ff; }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #005a9e;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "＋";
+      font-size: 1.25rem;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      content: "−";
+    }
+    details > div { margin-top: 0.75rem; }
+
+    /* ===== Quiz ===== */
+    .quiz {
+      background: #eef6ff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+    .quiz .pergunta { font-weight: 600; margin-bottom: 0.75rem; }
+    .quiz label {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.4rem;
+      background: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .quiz label:hover { border-color: #0078d4; }
+    .quiz button {
+      margin-top: 0.75rem;
+      background: #0078d4;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .quiz button:hover { background: #005a9e; }
+    .resultado {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+    }
+    .resultado.correto { background: #d1fae5; color: #065f46; }
+    .resultado.errado { background: #fee2e2; color: #991b1b; }
+
+    /* ===== Rodapé ===== */
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer a { color: #93c5fd; }
+
+    /* ===== Responsivo ===== */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      section { padding: 1.25rem; }
+      section h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📘 Curso de Informática Básica</h1>
+    <p>Microsoft Office 2024 — Word, Excel e PowerPoint</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#sobre">Sobre o Curso</a></li>
+      <li><a href="#modulos">Módulos</a></li>
+      <li><a href="#word">Word</a></li>
+      <li><a href="#excel">Excel</a></li>
+      <li><a href="#powerpoint">PowerPoint</a></li>
+      <li><a href="#avaliacao">Avaliação</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <h2>Sobre o Curso</h2>
+      <p>
+        Este curso foi desenvolvido para iniciantes que desejam dominar os fundamentos da informática
+        e aprender a utilizar o <strong>Microsoft Office 2024</strong> com confiança no ambiente pessoal
+        e profissional.
+      </p>
+      <h3>🎯 Objetivos</h3>
+      <ul>
+        <li>Compreender os conceitos básicos de hardware, software e sistemas operacionais.</li>
+        <li>Utilizar o <strong>Windows 11</strong> com segurança e eficiência.</li>
+        <li>Editar textos profissionais no <strong>Word 2024</strong>.</li>
+        <li>Organizar dados e criar planilhas no <strong>Excel 2024</strong>.</li>
+        <li>Montar apresentações impactantes no <strong>PowerPoint 2024</strong>.</li>
+      </ul>
+      <h3>👥 Público-alvo</h3>
+      <p>Iniciantes, estudantes, profissionais em transição de carreira e qualquer pessoa que deseje aprimorar suas habilidades digitais.</p>
+      <h3>⏱️ Carga horária sugerida</h3>
+      <p>40 horas, divididas em 4 módulos.</p>
+    </section>
+
+    <!-- MÓDULOS -->
+    <section id="modulos">
+      <h2>Estrutura dos Módulos</h2>
+      <div class="modulos">
+        <div class="card">
+          <div class="icon">🖥️</div>
+          <h3>Módulo 1</h3>
+          <p><strong>Introdução à Informática</strong></p>
+          <p>Hardware, software, Windows 11, arquivos e pastas, internet segura.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📝</div>
+          <h3>Módulo 2</h3>
+          <p><strong>Microsoft Word 2024</strong></p>
+          <p>Formatação de textos, estilos, tabelas, cabeçalhos, revisão e impressão.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📊</div>
+          <h3>Módulo 3</h3>
+          <p><strong>Microsoft Excel 2024</strong></p>
+          <p>Células, fórmulas, funções, gráficos, tabelas dinâmicas e formatação condicional.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎞️</div>
+          <h3>Módulo 4</h3>
+          <p><strong>Microsoft PowerPoint 2024</strong></p>
+          <p>Slides, temas, transições, animações, multimídia e apresentação ao vivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORD -->
+    <section id="word">
+      <h2>📝 Módulo 2 — Microsoft Word 2024</h2>
+      <p>O Word é o processador de textos da Microsoft. Na versão 2024, traz nova interface, recursos de IA e colaboração em tempo real.</p>
+
+      <details>
+        <summary>1. Interface e Faixa de Opções</summary>
+        <div>
+          <p>A <strong>Faixa de Opções</strong> (Ribbon) organiza os comandos em abas:</p>
+          <ul>
+            <li><strong>Arquivo:</strong> salvar, abrir, imprimir, exportar para PDF.</li>
+            <li><strong>Página Inicial:</strong> fonte, parágrafo, estilos.</li>
+            <li><strong>Inserir:</strong> tabelas, imagens, formas, hiperlinks.</li>
+            <li><strong>Layout:</strong> margens, orientação, colunas.</li>
+            <li><strong>Revisão:</strong> ortografia, sinônimos, controle de alterações.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. Formatação de Texto e Parágrafo</summary>
+        <div>
+          <p>Principais formatações:</p>
+          <ul>
+            <li><strong>Fonte:</strong> tipo, tamanho, cor, negrito (<em>Ctrl+N</em>), itálico (<em>Ctrl+I</em>), sublinhado (<em>Ctrl+S</em>).</li>
+            <li><strong>Parágrafo:</strong> alinhamento (esquerda, centro, direita, justificado), espaçamento entre linhas, recuo.</li>
+            <li><strong>Marcadores e numeração</strong> para listas.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. Estilos e Sumário Automático</summary>
+        <div>
+          <p>Aplique <strong>Título 1, Título 2, Título 3</strong> aos cabeçalhos do documento. Depois, vá em
+          <em>Referências → Sumário</em> para gerar um índice automático, atualizável com um clique.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>4. Tabelas, Imagens e Cabeçalhos</summary>
+        <div>
+          <ul>
+            <li><strong>Tabelas:</strong> Inserir → Tabela; é possível mesclar células e aplicar estilos.</li>
+            <li><strong>Imagens:</strong> Inserir → Imagens; ajuste quebra de texto (quadrado, atrás do texto, etc.).</li>
+            <li><strong>Cabeçalho e rodapé:</strong> Inserir → Cabeçalho/Rodapé; útil para numerar páginas.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>5. Revisão, Ortografia e Impressão</summary>
+        <div>
+          <p>Use <em>Revisão → Ortografia e Gramática</em> (<em>F7</em>) para revisar o texto. Antes de imprimir,
+          utilize <em>Arquivo → Imprimir</em> para visualizar o layout final e escolher a impressora.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- EXCEL -->
+    <section id="excel">
+      <h2>📊 Módulo 3 — Microsoft Excel 2024</h2>
+      <p>O Excel é a planilha eletrônica mais usada no mundo. A versão 2024 traz novas funções, gráficos aprimorados e integração com a nuvem.</p>
+
+      <details>
+        <summary>1. Células, Linhas e Colunas</summary>
+        <div>
+          <p>Uma planilha é composta por <strong>células</strong> identificadas por letra (coluna) e número (linha),
+          como <code>A1</code>, <code>B5</code>, <code>C10</code>. Você pode:</p>
+          <ul>
+            <li>Ajustar largura de colunas e altura de linhas.</li>
+            <li>Mesclar células (<em>Página Inicial → Mesclar e Centralizar</em>).</li>
+            <li>Inserir/excluir linhas e colunas com o botão direito.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. Fórmulas e Operadores</summary>
+        <div>
+          <p>Toda fórmula começa com <code>=</code>. Exemplos:</p>
+          <ul>
+            <li>Soma: <code>=A1+B1</code> ou <code>=SOMA(A1:A10)</code></li>
+            <li>Subtração: <code>=A1-B1</code></li>
+            <li>Multiplicação: <code>=A1*B1</code></li>
+            <li>Divisão: <code>=A1/B1</code></li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. Funções Essenciais</summary>
+        <div>
+          <ul>
+            <li><code>=MÉDIA(A1:A10)</code> — calcula a média.</li>
+            <li><code>=MÁXIMO(A1:A10)</code> — maior valor.</li>
+            <li><code>=MÍNIMO(A1:A10)</code> — menor valor.</li>
+            <li><code>=CONT.SE(A1:A10;"&gt;10")</code> — conta valores que atendem ao critério.</li>
+            <li><code>=SE(A1&gt;=7;"Aprovado";"Reprovado")</code> — função condicional.</li>
+            <li><code>=PROCV()</code> — busca valores em tabelas (novidade 2024: também <code>=PROCX()</code>).</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>4. Gráficos e Formatação Condicional</summary>
+        <div>
+          <p>Selecione os dados e vá em <em>Inserir → Gráficos</em>. Tipos mais usados: colunas, linhas, pizza e barras.</p>
+          <p>A <strong>formatação condicional</strong> destaca células com base em regras (ex.: valores acima da média em verde).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>5. Tabelas Dinâmicas</summary>
+        <div>
+          <p>Recurso poderoso para resumir grandes volumes de dados. Vá em
+          <em>Inserir → Tabela Dinâmica</em>, escolha os campos e arraste para linhas, colunas e valores.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- POWERPOINT -->
+    <section id="powerpoint">
+      <h2>🎞️ Módulo 4 — Microsoft PowerPoint 2024</h2>
+      <p>O PowerPoint permite criar apresentações visuais e dinâmicas. A versão 2024 traz novos designs, transições suaves e recursos de gravação.</p>
+
+      <details>
+        <summary>1. Criando e Organizando Slides</summary>
+        <div>
+          <ul>
+            <li><em>Página Inicial → Novo Slide</em> para adicionar slides.</li>
+            <li>Escolha layouts diferentes: título, título e conteúdo, duas colunas, em branco.</li>
+            <li>Reorganize os slides arrastando no painel lateral.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. Temas, Cores e Fontes</summary>
+        <div>
+          <p>Vá em <em>Design</em> para escolher um <strong>tema</strong>. Você pode personalizar cores e fontes
+          em <em>Variants</em> para manter a identidade visual da apresentação.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. Inserindo Imagens, Vídeos e Áudio</summary>
+        <div>
+          <ul>
+            <li><em>Inserir → Imagens</em> (do computador ou online).</li>
+            <li><em>Inserir → Vídeo</em> para vídeos locais ou do YouTube.</li>
+            <li><em>Inserir → Áudio</em> para narração ou trilha sonora.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>4. Transições e Animações</summary>
+        <div>
+          <p><strong>Transições</strong> são efeitos entre slides (ex.: Morph, Push, Fade).
+          <strong>Animações</strong> são efeitos em objetos dentro do slide (entrada, ênfase, saída, trajetória).</p>
+          <p>Dica: use com moderação para manter a apresentação profissional.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>5. Apresentando e Exportando</summary>
+        <div>
+          <p>Pressione <strong>F5</strong> para iniciar a apresentação do começo, ou <em>Apresentação de Slide → Do Slide Atual</em>.
+          Para exportar, use <em>Arquivo → Exportar</em> (PDF, vídeo MP4 ou GIF).</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- AVALIAÇÃO -->
+    <section id="avaliacao">
+      <h2>📝 Avaliação Rápida</h2>
+      <p>Teste seus conhecimentos com este mini-quiz. Clique em "Verificar" após escolher uma alternativa.</p>
+
+      <div class="quiz" data-resposta="b">
+        <div class="pergunta">1) Qual tecla de atalho inicia a apresentação de slides no PowerPoint?</div>
+        <label><input type="radio" name="q1" value="a"> F1</label>
+        <label><input type="radio" name="q1" value="b"> F5</label>
+        <label><input type="radio" name="q1" value="c"> F7</label>
+        <label><input type="radio" name="q1" value="d"> F12</label>
+        <button type="button" onclick="verificar(this)">Verificar</button>
+        <div class="resultado"></div>
+      </div>
+
+      <div class="quiz" data-resposta="c">
+        <div class="pergunta">2) No Excel, toda fórmula deve começar com qual caractere?</div>
+        <label><input type="radio" name="q2" value="a"> +</label>
+        <label><input type="radio" name="q2" value="b"> #</label>
+        <label><input type="radio" name="q2" value="c"> =</label>
+        <label><input type="radio" name="q2" value="d"> @</label>
+        <button type="button" onclick="verificar(this)">Verificar</button>
+        <div class="resultado"></div>
+      </div>
+
+      <div class="quiz" data-resposta="a">
+        <div class="pergunta">3) Qual função do Word gera um índice automático com base nos títulos?</div>
+        <label><input type="radio" name="q3" value="a"> Sumário (em Referências)</label>
+        <label><input type="radio" name="q3" value="b"> Legenda</label>
+        <label><input type="radio" name="q3" value="c"> Nota de rodapé</label>
+        <label><input type="radio" name="q3" value="d"> Índice remissivo</label>
+        <button type="button" onclick="verificar(this)">Verificar</button>
+        <div class="resultado"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 — Curso de Informática Básica | Microsoft Office 2024</p>
+    <p>Desenvolvido para fins educacionais. Microsoft, Word, Excel e PowerPoint são marcas da Microsoft Corporation.</p>
+  </footer>
+
+  <script>
+    // Função de verificação do quiz
+    function verificar(botao) {
+      const quiz = botao.closest('.quiz');
+      const respostaCerta = quiz.dataset.resposta;
+      const selecionada = quiz.querySelector('input[type="radio"]:checked');
+      const resultado = quiz.querySelector('.resultado');
+
+      if (!selecionada) {
+        resultado.textContent = '⚠️ Selecione uma alternativa antes de verificar.';
+        resultado.className = 'resultado errado';
+        return;
+      }
+
+      if (selecionada.value === respostaCerta) {
+        resultado.textContent = '✅ Correto! Muito bem!';
+        resultado.className = 'resultado correto';
+      } else {
+        resultado.textContent = '❌ Incorreto. Tente novamente!';
+        resultado.className = 'resultado errado';
+      }
+    }
+  </script>
+
+</body>
+</html>

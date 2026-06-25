@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curso de Informática Básica com ênfase em Microsoft Office 2024: Word, Excel e PowerPoint." />
+  <title>Curso de Informática Básica — MS Office 2024</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="16x16"  href="/imgs/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+  <header>
+    <h1>📘 Curso de Informática Básica</h1>
+    <p>Microsoft Office 2024 — Word, Excel e PowerPoint</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Sobre o Curso</a></li>
+      <li><a href="#">Módulos</a></li>
+      <li><a href="#">Word</a></li>
+      <li><a href="#">Excel</a></li>
+      <li><a href="#">PowerPoint</a></li>
+      <li><a href="#">Avaliação</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- AVALIAÇÃO -->
+    <section id="avaliacao">
+      <h2>📝 Avaliação Rápida</h2>
+      <p>Teste seus conhecimentos com este mini-quiz. Clique em "Verificar" após escolher uma alternativa.</p>
+
+      <div class="quiz" data-resposta="b">
+        <div class="pergunta">1) Qual tecla de atalho inicia a apresentação de slides no PowerPoint?</div>
+        <label><input type="radio" name="q1" value="a"> F1</label>
+        <label><input type="radio" name="q1" value="b"> F5</label>
+        <label><input type="radio" name="q1" value="c"> F7</label>
+        <label><input type="radio" name="q1" value="d"> F12</label>
+        <button type="button" onclick="verificar(this)">Verificar</button>
+        <div class="resultado"></div>
+      </div>
+
+      <div class="quiz" data-resposta="c">
+        <div class="pergunta">2) No Excel, toda fórmula deve começar com qual caractere?</div>
+        <label><input type="radio" name="q2" value="a"> +</label>
+        <label><input type="radio" name="q2" value="b"> #</label>
+        <label><input type="radio" name="q2" value="c"> =</label>
+        <label><input type="radio" name="q2" value="d"> @</label>
+        <button type="button" onclick="verificar(this)">Verificar</button>
+        <div class="resultado"></div>
+      </div>
+
+      <div class="quiz" data-resposta="a">
+        <div class="pergunta">3) Qual função do Word gera um índice automático com base nos títulos?</div>
+        <label><input type="radio" name="q3" value="a"> Sumário (em Referências)</label>
+        <label><input type="radio" name="q3" value="b"> Legenda</label>
+        <label><input type="radio" name="q3" value="c"> Nota de rodapé</label>
+        <label><input type="radio" name="q3" value="d"> Índice remissivo</label>
+        <button type="button" onclick="verificar(this)">Verificar</button>
+        <div class="resultado"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 — Curso de Informática Básica | Microsoft Office 2024</p>
+    <p>Desenvolvido para fins educacionais. Microsoft, Word, Excel e PowerPoint são marcas da Microsoft Corporation.</p>
+  </footer>
+
+  <script>
+    // Função de verificação do quiz
+    function verificar(botao) {
+      const quiz = botao.closest('.quiz');
+      const respostaCerta = quiz.dataset.resposta;
+      const selecionada = quiz.querySelector('input[type="radio"]:checked');
+      const resultado = quiz.querySelector('.resultado');
+
+      if (!selecionada) {
+        resultado.textContent = '⚠️ Selecione uma alternativa antes de verificar.';
+        resultado.className = 'resultado errado';
+        return;
+      }
+
+      if (selecionada.value === respostaCerta) {
+        resultado.textContent = '✅ Correto! Muito bem!';
+        resultado.className = 'resultado correto';
+      } else {
+        resultado.textContent = '❌ Incorreto. Tente novamente!';
+        resultado.className = 'resultado errado';
+      }
+    }
+  </script>
+
+</body>
+</html>

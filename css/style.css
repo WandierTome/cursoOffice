@@ -1,0 +1,194 @@
+/* ===== Reset e base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cor-principal: #0B1741;
+  --cor-secundaria: #2ecc71;
+  --cor-fundo: #f4f4f4;
+  --cor-texto: #333333;
+}
+html { scroll-behavior: smooth; }
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f3f4f6;
+    }
+    a { color: var(--cor-principal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Cabeçalho ===== */
+    header {
+      background: linear-gradient(135deg, var(--cor-principal) 0%, #005a9e 100%);
+      color: #fff;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.95; }
+
+    /* ===== Navegação ===== */
+    nav {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+    }
+    nav a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: var(--cor-principal);
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: var(--cor-principal);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ===== Container principal ===== */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    section h2 {
+      color: var(--cor-principal);
+      border-bottom: 3px solid var(--cor-principal);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.6rem;
+    }
+    section h3 {
+      color: #005a9e;
+      margin: 1.25rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    section p, section li { margin-bottom: 0.5rem; }
+    section ul, section ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+
+    /* ===== Cards dos módulos ===== */
+    .modulos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: #f9fafb;
+      border-left: 5px solid var(--cor-principal);
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .card h3 { margin-top: 0; }
+
+    /* ===== Acordeão ===== */
+    details {
+      background: #f9fafb;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+    }
+    details[open] { background: #eef6ff; }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #005a9e;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "＋";
+      font-size: 1.25rem;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      content: "−";
+    }
+    details > div { margin-top: 0.75rem; }
+
+    /* ===== Quiz ===== */
+    .quiz {
+      background: #eef6ff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+    .quiz .pergunta { font-weight: 600; margin-bottom: 0.75rem; }
+    .quiz label {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.4rem;
+      background: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .quiz label:hover { border-color: var(--cor-principal); }
+    .quiz button {
+      margin-top: 0.75rem;
+      background: var(--cor-principal);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .quiz button:hover { background: #005a9e; }
+    .resultado {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+    }
+    .resultado.correto { background: #d1fae5; color: #065f46; }
+    .resultado.errado { background: #fee2e2; color: #991b1b; }
+
+    /* ===== Rodapé ===== */
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer a { color: #93c5fd; }
+
+    /* ===== Responsivo ===== */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      section { padding: 1.25rem; }
+      section h2 { font-size: 1.3rem; }
+    }

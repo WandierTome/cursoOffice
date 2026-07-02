@@ -58,6 +58,22 @@ body {
       text-decoration: none;
     }
 
+
+        /* ESTILOS DO BANNER */
+        .banner {
+            /* Imagem de fundo (usando um link de exemplo) */
+            background-image: url(../imgs/banner-01.png);
+            
+            /* Faz a imagem cobrir todo o espaço sem distorcer */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            /* Altura do banner */
+            height: 80vh; /* 80% da altura da tela */
+            min-height: 400px;
+        }
+
     /* ===== Container principal ===== */
     main {
       max-width: 1100px;
